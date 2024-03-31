@@ -6,7 +6,7 @@ feature_extractor = ViTFeatureExtractor.from_pretrained(model_name)
 model = ViTModel.from_pretrained(model_name)
 
 
-img_path = 'image.jpg'
+img_path = 'x.jpg'
 image = Image.open(img_path)
 
 square_size = 224
