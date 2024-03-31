@@ -50,12 +50,18 @@ def reshape_embeddings(embeddings):
             
     return final_embeddings
 
-def trim_edges_embeddings(image, final_embeddings):
-    width_tiles_target = image.size[0] // 224
-    height_tiles_target = image.size[1] // 224
-
-    w_for_remove = (image.size[0] - (width_tiles_target * 224)) // 16
-    h_for_remove = (image.size[1] - (height_tiles_target * 224)) // 16
-
-    trimmed_embeddings = final_embeddings[h_for_remove:-h_for_remove, w_for_remove:-w_for_remove, :]
+def trim_edges_embeddings(image, final_embeddings,square_size,patch_size):
+    width_tiles_target = image.size[0] // square_size
+    height_tiles_target = image.size[1] // square_size
+    
+    tiles_r_w = (image.size[0] - (width_tiles_target*square_size))//patch_size
+    tiles_r_h = (image.size[1] - (height_tiles_target*square_size))//patch_size
+    
+    tiles_count = square_size//patch_size
+    
+    frw=tiles_count-tiles_r_w
+    frh=tiles_count-tiles_r_h
+    
+    trimmed_embeddings = final_embeddings[:-frh, :-frw, :]
     return trimmed_embeddings
+    
