@@ -54,7 +54,7 @@ embeddings = get_embeddings_from_squares(squares, model, feature_extractor)
 final_embeddings = reshape_embeddings(embeddings)
 trimmed_final_embeddings=trim_edges_embeddings(image,final_embeddings)
 
-print("Size of the final embedding array:", trimmed_final_embeddings.shape)
+print("Size of the final embedding array:", trimmed_final_embeddings.shape) # Size of the final embedding array: (54, 54, 768)
 ```
 
 ## Contribution
