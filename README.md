@@ -60,3 +60,7 @@ print("Size of the final embedding array:", trimmed_final_embeddings.shape) # Si
 ## Contribution
 
 Contributions are welcome! If you have suggestions for improvement or have found bugs, please open an issue or a pull request.
+
+## License
+
+This project is licensed under the Apache License Version 2.0. For more information, see the `LICENSE` file in this repository.
